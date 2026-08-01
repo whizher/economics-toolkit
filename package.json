@@ -1,0 +1,15 @@
+{
+  "name": "economics-toolkit",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Five transparent, browser-based calculators for practical economic analysis.",
+  "type": "module",
+  "scripts": {
+    "check": "node --check app.js && node --check src/calculators.mjs",
+    "test": "npm run check && node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}

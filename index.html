@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Five practical economics calculators for growth, inflation, real values, and projections."
+    />
+    <meta name="theme-color" content="#071813" />
+    <title>Economics Toolkit — Practical calculators for everyday analysis</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#calculators">Skip to calculators</a>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Economics Toolkit home">
+        <svg aria-hidden="true" viewBox="0 0 40 40" role="img">
+          <path d="M7 30V19M16 30V11M25 30V16M34 30V7" />
+          <path d="m6 12 9-5 9 4 10-6" />
+        </svg>
+        <span>Economics Toolkit</span>
+      </a>
+
+      <nav aria-label="Primary navigation">
+        <a href="#calculators">Calculators</a>
+        <a href="#about">About</a>
+        <a href="https://github.com/whizher/economics-toolkit">GitHub</a>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light theme">
+          <span aria-hidden="true">☀</span>
+        </button>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span></span> Practical economics, minus the spreadsheet setup</p>
+          <h1 id="hero-title">Turn economic questions into <em>clear answers.</em></h1>
+          <p class="hero-intro">
+            Explore growth, inflation, purchasing power, and real values with five focused calculators.
+            Every result includes the formula and stays entirely in your browser.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="#calculators">Open the calculators <span aria-hidden="true">→</span></a>
+            <a class="button button-secondary" href="https://github.com/whizher/economics-toolkit">View source</a>
+          </div>
+
+          <ul class="trust-list" aria-label="Toolkit qualities">
+            <li><strong>5</strong> focused tools</li>
+            <li><strong>0</strong> data collected</li>
+            <li><strong>100%</strong> open source</li>
+          </ul>
+        </div>
+
+        <div class="hero-visual" aria-label="Example compound growth chart">
+          <div class="visual-topline">
+            <span>Compound projection</span>
+            <span class="status"><i></i> Calculated locally</span>
+          </div>
+          <div class="visual-metric">
+            <small>Projected value</small>
+            <strong>Rp 14.693.281</strong>
+            <span>+46.9% over 5 years</span>
+          </div>
+          <svg class="hero-chart" viewBox="0 0 520 230" role="img" aria-label="Illustrative upward growth curve">
+            <defs>
+              <linearGradient id="area-fill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#5ce0a0" stop-opacity=".35" />
+                <stop offset="1" stop-color="#5ce0a0" stop-opacity="0" />
+              </linearGradient>
+            </defs>
+            <g class="chart-grid">
+              <path d="M30 30H500M30 82H500M30 134H500M30 186H500" />
+              <path d="M30 30V205M124 30V205M218 30V205M312 30V205M406 30V205M500 30V205" />
+            </g>
+            <path class="chart-area" d="M30 184C86 180 103 166 151 161s82-25 120-37 68-11 106-37 71-47 123-58v176H30Z" />
+            <path class="chart-line" d="M30 184C86 180 103 166 151 161s82-25 120-37 68-11 106-37 71-47 123-58" />
+            <g class="chart-points">
+              <circle cx="30" cy="184" r="5" /><circle cx="151" cy="161" r="5" />
+              <circle cx="271" cy="124" r="5" /><circle cx="377" cy="87" r="5" />
+              <circle cx="500" cy="29" r="6" />
+            </g>
+          </svg>
+          <div class="visual-legend"><span>Year 0</span><span>Year 5</span></div>
+        </div>
+      </section>
+
+      <section class="calculator-section" id="calculators" aria-labelledby="calculators-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow"><span></span> The toolkit</p>
+            <h2 id="calculators-title">Choose a calculator</h2>
+          </div>
+          <label class="currency-control" for="currency">
+            Display currency
+            <select id="currency">
+              <option value="IDR" selected>IDR — Rupiah</option>
+              <option value="USD">USD — Dollar</option>
+              <option value="EUR">EUR — Euro</option>
+              <option value="GBP">GBP — Pound</option>
+              <option value="JPY">JPY — Yen</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="calculator-grid">
+          <article class="calculator-card" id="percentage-change">
+            <div class="card-heading">
+              <span class="card-number">01</span>
+              <div><h3>Percentage change</h3><p>Measure how much a value rose or fell.</p></div>
+            </div>
+            <form data-calculator="percentage">
+              <div class="field-grid">
+                <label>Original value<input name="original" type="number" step="any" value="100" required /></label>
+                <label>New value<input name="current" type="number" step="any" value="125" required /></label>
+              </div>
+              <button class="calculate-button" type="submit">Calculate change</button>
+            </form>
+            <div class="result-panel" data-result aria-live="polite" hidden></div>
+            <p class="formula"><strong>Formula</strong> (new − original) ÷ original × 100</p>
+          </article>
+
+          <article class="calculator-card" id="cagr">
+            <div class="card-heading">
+              <span class="card-number">02</span>
+              <div><h3>CAGR</h3><p>Find a smoothed annual growth rate.</p></div>
+            </div>
+            <form data-calculator="cagr">
+              <div class="field-grid three-fields">
+                <label>Starting value<input name="start" type="number" min="0.000001" step="any" value="10000000" required /></label>
+                <label>Ending value<input name="end" type="number" min="0" step="any" value="14693281" required /></label>
+                <label>Years<input name="periods" type="number" min="0.01" step="any" value="5" required /></label>
+              </div>
+              <button class="calculate-button" type="submit">Calculate CAGR</button>
+            </form>
+            <div class="result-panel" data-result aria-live="polite" hidden></div>
+            <p class="formula"><strong>Formula</strong> (ending ÷ beginning)<sup>1 ÷ years</sup> − 1</p>
+          </article>
+
+          <article class="calculator-card" id="inflation">
+            <div class="card-heading">
+              <span class="card-number">03</span>
+              <div><h3>Inflation & purchasing power</h3><p>Compare money across time.</p></div>
+            </div>
+            <form data-calculator="inflation">
+              <div class="field-grid">
+                <label>Amount<input name="amount" type="number" min="0" step="any" value="1000000" required /></label>
+                <label>Annual inflation (%)<input name="rate" type="number" min="-99.99" step="any" value="3" required /></label>
+                <label>Years<input name="years" type="number" min="0" step="any" value="5" required /></label>
+                <label>Calculate
+                  <select name="mode">
+                    <option value="equivalent">Future equivalent cost</option>
+                    <option value="power">Future purchasing power</option>
+                  </select>
+                </label>
+              </div>
+              <button class="calculate-button" type="submit">Adjust for inflation</button>
+            </form>
+            <div class="result-panel" data-result aria-live="polite" hidden></div>
+            <p class="formula"><strong>Formula</strong> amount × (1 + inflation rate)<sup>years</sup></p>
+          </article>
+
+          <article class="calculator-card" id="real-nominal">
+            <div class="card-heading">
+              <span class="card-number">04</span>
+              <div><h3>Real vs. nominal value</h3><p>Remove or restore the effect of prices.</p></div>
+            </div>
+            <form data-calculator="realNominal">
+              <div class="field-grid">
+                <label>Value<input name="amount" type="number" min="0" step="any" value="125000000" required /></label>
+                <label>Current price index<input name="index" type="number" min="0.000001" step="any" value="125" required /></label>
+                <label>Base price index<input name="baseIndex" type="number" min="0.000001" step="any" value="100" required /></label>
+                <label>Convert
+                  <select name="direction">
+                    <option value="toReal">Nominal → real</option>
+                    <option value="toNominal">Real → nominal</option>
+                  </select>
+                </label>
+              </div>
+              <button class="calculate-button" type="submit">Convert value</button>
+            </form>
+            <div class="result-panel" data-result aria-live="polite" hidden></div>
+            <p class="formula"><strong>Real value</strong> nominal value × base index ÷ current index</p>
+          </article>
+
+          <article class="calculator-card calculator-card-wide" id="compound-growth">
+            <div class="card-heading">
+              <span class="card-number">05</span>
+              <div><h3>Compound growth projection</h3><p>Project a growing balance with optional recurring additions.</p></div>
+            </div>
+            <form data-calculator="compound">
+              <div class="field-grid four-fields">
+                <label>Initial value<input name="initial" type="number" min="0" step="any" value="10000000" required /></label>
+                <label>Growth per period (%)<input name="rate" type="number" min="-99.99" step="any" value="8" required /></label>
+                <label>Number of periods<input name="periods" type="number" min="1" max="100" step="1" value="5" required /></label>
+                <label>Addition each period<input name="contribution" type="number" min="0" step="any" value="0" required /></label>
+              </div>
+              <button class="calculate-button" type="submit">Build projection</button>
+            </form>
+            <div class="result-panel projection-result" data-result aria-live="polite" hidden></div>
+            <p class="formula"><strong>Each period</strong> previous balance × (1 + growth rate) + addition</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="about-section" id="about" aria-labelledby="about-title">
+        <div>
+          <p class="eyebrow"><span></span> Designed for understanding</p>
+          <h2 id="about-title">Useful numbers should be easy to inspect.</h2>
+          <p>
+            Economics Toolkit is a small open-source project by Naufal. It favors readable formulas,
+            sensible validation, and results you can verify rather than black-box calculations.
+          </p>
+        </div>
+        <ul class="principle-list">
+          <li><span>01</span><div><strong>Private by default</strong><p>Inputs never leave your browser.</p></div></li>
+          <li><span>02</span><div><strong>Transparent formulas</strong><p>Every calculator shows its method.</p></div></li>
+          <li><span>03</span><div><strong>Built for any screen</strong><p>Comfortable on phones and desktops.</p></div></li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>Built as a learning project by <a href="https://github.com/whizher">Naufal</a>.</p>
+      <p>For education and exploration—not financial advice.</p>
+    </footer>
+
+    <noscript><p class="noscript">JavaScript is required to run the calculators.</p></noscript>
+  </body>
+</html>
