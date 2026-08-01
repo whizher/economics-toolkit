@@ -1,7 +1,6 @@
 # Economics Toolkit
 
 [![Validate](https://github.com/whizher/economics-toolkit/actions/workflows/validate.yml/badge.svg)](https://github.com/whizher/economics-toolkit/actions/workflows/validate.yml)
-[![Deploy](https://github.com/whizher/economics-toolkit/actions/workflows/pages.yml/badge.svg)](https://github.com/whizher/economics-toolkit/actions/workflows/pages.yml)
 [![MIT License](https://img.shields.io/badge/license-MIT-62e5a5.svg)](LICENSE)
 
 Five focused calculators for practical economic analysis—without a spreadsheet setup or a black box.
@@ -83,7 +82,7 @@ The calculation engine is separated from the interface and tested with Node's bu
 npm test
 ```
 
-GitHub Actions runs the same checks on every push and pull request. A second workflow deploys the static site to GitHub Pages.
+GitHub Actions runs the same checks on every push and pull request. GitHub Pages publishes the static site directly from the `main` branch.
 
 ## Project structure
 
@@ -94,7 +93,7 @@ GitHub Actions runs the same checks on every push and pull request. A second wor
 ├── app.js                    # Interface, formatting, and rendering
 ├── src/calculators.mjs       # Pure calculation functions
 ├── tests/calculators.test.mjs
-└── .github/workflows/        # Validation and Pages deployment
+└── .github/workflows/        # Continuous validation
 ```
 
 ## Scope
