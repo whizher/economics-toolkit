@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "check": "node --check app.js && node --check src/calculators.mjs",
+    "build": "node scripts/build-site.mjs",
     "test": "npm run check && node --test"
   },
   "engines": {
