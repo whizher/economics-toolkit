@@ -82,7 +82,7 @@ The calculation engine is separated from the interface and tested with Node's bu
 npm test
 ```
 
-GitHub Actions runs the same checks on every push and pull request. GitHub Pages publishes the static site directly from the `main` branch.
+GitHub Actions runs validation on every push and pull request. Production deploys use a separate GitHub Pages workflow that tests the repository, builds an allowlisted `_site/` artifact, and publishes only the browser runtime files.
 
 ## Project structure
 
@@ -92,8 +92,11 @@ GitHub Actions runs the same checks on every push and pull request. GitHub Pages
 ├── styles.css                # Responsive visual system
 ├── app.js                    # Interface, formatting, and rendering
 ├── src/calculators.mjs       # Pure calculation functions
+├── scripts/build-site.mjs    # Allowlisted GitHub Pages artifact builder
 ├── tests/calculators.test.mjs
-└── .github/workflows/        # Continuous validation
+├── tests/build.test.mjs      # Public-artifact boundary tests
+├── tests/workflows.test.mjs  # CI/Pages security-policy tests
+└── .github/workflows/        # Validation and Pages deployment
 ```
 
 ## Scope
