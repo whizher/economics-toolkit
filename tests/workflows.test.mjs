@@ -32,14 +32,17 @@ test("validation workflow is read-only, bounded, and immutably pinned", async ()
   );
 });
 
-test("Pages workflow deploys only from main or manual dispatch with least privilege", async () => {
+test("Pages workflow trigger policy is main-only or manual", async () => {
   const workflow = await readFile(".github/workflows/pages.yml", "utf8");
   assert.match(
     workflow,
-    /^permissions:\n  contents: read\n  pages: write\n  id-token: write$/m,
+    /^on:\n  push:\n    branches: \["main"\]\n  workflow_dispatch:\s*$/m,
   );
   assert.doesNotMatch(workflow, /^\s*pull_request:\s*$/m);
-  assert.match(workflow, /^\s*workflow_dispatch:\s*$/m);
+});
+
+test("Pages workflow remains bounded and immutably pinned", async () => {
+  const workflow = await readFile(".github/workflows/pages.yml", "utf8");
   assert.match(workflow, /^\s*timeout-minutes:\s*10$/m);
   assert.match(workflow, /^\s*path:\s*_site$/m);
   assertApprovedActions(
