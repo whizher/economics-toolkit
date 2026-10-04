@@ -82,7 +82,7 @@ The calculation engine is separated from the interface and tested with Node's bu
 npm test
 ```
 
-GitHub Actions runs validation on every push and pull request. Production deploys use a separate GitHub Pages workflow that tests the repository, builds an allowlisted `_site/` artifact, and publishes only the browser runtime files.
+GitHub Actions runs validation on pushes to `main` and on every pull request. Production deploys use a separate GitHub Pages workflow that tests the repository, builds an allowlisted `_site/` artifact, and publishes only the browser runtime files.
 
 ## Project structure
 
