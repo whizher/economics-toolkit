@@ -38,7 +38,7 @@ test("validation workflow is read-only, bounded, and immutably pinned", async ()
     workflow,
     new Map([
       ["actions/checkout", "3d3c42e5aac5ba805825da76410c181273ba90b1"],
-      ["actions/setup-node", "49933ea5288caeca8642d1e84afbd3f7d6820020"],
+      ["actions/setup-node", "949feb2413d6458794dcd2491c4babbbce0c15c1"],
     ]),
   );
 });
@@ -60,7 +60,7 @@ test("Pages workflow remains bounded and immutably pinned", async () => {
     workflow,
     new Map([
       ["actions/checkout", "3d3c42e5aac5ba805825da76410c181273ba90b1"],
-      ["actions/setup-node", "49933ea5288caeca8642d1e84afbd3f7d6820020"],
+      ["actions/setup-node", "949feb2413d6458794dcd2491c4babbbce0c15c1"],
       ["actions/configure-pages", "45bfe0192ca1faeb007ade9deae92b16b8254a0d"],
       ["actions/upload-pages-artifact", "fc324d3547104276b827a68afc52ff2a11cc49c9"],
       ["actions/deploy-pages", "cd2ce8fcbc39b97be8ca5fce6e763baed58fa128"],
@@ -99,7 +99,7 @@ test("Pages workflow isolates read-only build from privileged deploy", async () 
     workflow,
     new Map([
       ["actions/checkout", "3d3c42e5aac5ba805825da76410c181273ba90b1"],
-      ["actions/setup-node", "49933ea5288caeca8642d1e84afbd3f7d6820020"],
+      ["actions/setup-node", "949feb2413d6458794dcd2491c4babbbce0c15c1"],
       ["actions/configure-pages", "45bfe0192ca1faeb007ade9deae92b16b8254a0d"],
       ["actions/upload-pages-artifact", "fc324d3547104276b827a68afc52ff2a11cc49c9"],
       ["actions/deploy-pages", "cd2ce8fcbc39b97be8ca5fce6e763baed58fa128"],
